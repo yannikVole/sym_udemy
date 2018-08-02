@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog Posts{% endblock %}
+
+{% block body %}
+    <h1>Current locale: {{ locale }}</h1>
+    <h2>{{ message }}</h2>
+    <hr>
+    <a href="{{ path('blog_add') }}">Add Post!</a>
+    {% for id, post in posts %}
+        <p><a href="{{ path('blog_show',{'id':id}) }}">ID {{ id }}</a></p>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.text }}</p>
+    {% endfor %}
+{% endblock %}
